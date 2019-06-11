@@ -47,11 +47,6 @@
 \makeatletter
 \newcommand\versenumcolor{red}
 \newcommand\chapnumcolor{red}
-\renewcommand\paragraph{%
-  \@startsection{paragraph}{4}{\z@}%
-                {.25ex \@plus.25ex \@minus.1ex}%
-                {-.5em}%
-                {\normalfont\normalsize\bfseries\color{\versenumcolor}}}%
 \newlength{\biblechapskip}
   \setlength{\biblechapskip}{1em plus .33em minus .2em}
 \newcounter{biblechapter}
@@ -72,10 +67,9 @@
   \lettrine[lines=3,lhang=0,loversize=0.25]{\lettrinefont\color{\chapnumcolor}\thebiblechapter}{}\ignorespaces}
   {\par\vspace{\biblechapskip}}
 \renewcommand{\verse}[1][\thebibleverse]{%
-  \refstepcounter{bibleverse}
-  \markright{{\scshape\currbook} \thebiblechapter:\thebibleverse}
-  \ifnum\c@bibleverse=1\else
-    \ltx@paragraph*{#1}\fi}%
+  \refstepcounter{bibleverse}%
+  \markright{{\scshape\currbook} \thebiblechapter:\thebibleverse}%
+  \ifnum\c@bibleverse=1\else{\color{\versenumcolor}\textbf{\thebibleverse}}\fi~}%
 \makeatother
 
 \makechapterstyle{dash-embiggened}{%
