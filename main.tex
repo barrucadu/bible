@@ -6,6 +6,7 @@
 \usepackage{lettrine}
 \usepackage{flushend}
 \usepackage{fancyhdr}
+\usepackage[object=vectorian]{pgfornament}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -113,7 +114,42 @@
 
 \begin{document}
 \frontmatter
-\maketitle
+
+\begin{titlingpage}
+\vspace*{\fill}
+
+\newcommand{\framesize}{\textwidth}
+\begin{tikzpicture}[color=Gold,
+    transform shape,
+    every node/.style={inner sep=0pt}]
+  \node[minimum size=\framesize,fill=Beige!10](vecbox){};
+  \node[anchor=north west] at (vecbox.north west){%
+    \pgfornament[width=0.2*\framesize]{131}};
+  \node[anchor=north east] at (vecbox.north east){%
+    \pgfornament[width=0.2*\framesize,symmetry=v]{131}};
+  \node[anchor=south west] at (vecbox.south west){%
+    \pgfornament[width=0.2*\framesize,symmetry=h]{131}};
+  \node[anchor=south east] at (vecbox.south east){%
+    \pgfornament[width=0.2*\framesize,symmetry=c]{131}};
+  \node[anchor=north] at (vecbox.north){%
+    \pgfornament[width=0.6*\framesize,symmetry=h]{85}};
+  \node[anchor=south] at (vecbox.south){%
+    \pgfornament[width=0.6*\framesize]{85}};
+  \node[anchor=north,rotate=90] at (vecbox.west){%
+    \pgfornament[width=0.6*\framesize,symmetry=h]{85}};
+  \node[anchor=north,rotate=-90] at (vecbox.east){%
+    \pgfornament[width=0.6*\framesize,symmetry=h]{85}};
+  \node[inner sep=6pt, color=black] (text) at (vecbox.center){%
+    \HUGE \textsc{The Holy Bible}};
+  \node[anchor=north, color=Goldenrod] (base) at (text.south){%
+    \pgfornament[width=0.5*\framesize]{71}};
+  \node[anchor=south, color=Goldenrod] at (text.north){%
+    \pgfornament[width=0.5*\framesize,symmetry=h]{71}};
+\end{tikzpicture}
+
+\vspace*{\fill}
+\end{titlingpage}
+
 \tableofcontents
 
 \mainmatter
