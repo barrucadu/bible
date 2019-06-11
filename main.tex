@@ -89,6 +89,7 @@
 \makeatother
 
 \renewcommand{\printparttitle}[1]{%
+  \thispagestyle{empty}%
   \vspace*{\fill}%
   \begin{tikzpicture}[transform shape,every node/.style={inner sep=0pt}]%
     \node[minimum size=\framesize](vecbox){};%
