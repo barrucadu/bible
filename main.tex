@@ -70,6 +70,7 @@
 \let\ltx@chapter=\chapter
 \let\ltx@paragraph=\paragraph
 \newcommand{\biblebook}[1]{%
+  \setcounter{biblechapter}{0}
   \gdef\currbook{#1}
   \ltx@chapter{#1}}
 \newcount\biblechap@svdopt
