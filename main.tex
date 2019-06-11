@@ -42,6 +42,7 @@
   ItalicFont      = Equity Text A Italic ,
   BoldItalicFont  = Equity Text A Bold Italic]
 
+\newcommand{\framesize}{\textwidth}
 \setlength{\headwidth}{\textwidth}
 \setlength{\columnseprule}{0pt}
 \setlength{\columnsep}{30pt}
@@ -87,6 +88,17 @@
   \ifnum\c@bibleverse=1\else{\color{\versenumcolor}\textbf{\thebibleverse}}\fi~}%
 \makeatother
 
+\renewcommand{\printparttitle}[1]{%
+  \vspace*{\fill}%
+  \begin{tikzpicture}[transform shape,every node/.style={inner sep=0pt}]%
+    \node[minimum size=\framesize](vecbox){};%
+  \node[inner sep=6pt, color=black] (text) at (vecbox.center){%
+    \HUGE \textsc{#1}};%
+  \node[anchor=north, color=Goldenrod] (base) at (text.south){%
+    \pgfornament[width=0.5*\framesize]{88}};%
+  \end{tikzpicture}%
+  \vspace*{\fill}}
+
 \makechapterstyle{dash-embiggened}{%
   \chapterstyle{default}
   \setlength{\beforechapskip}{5\onelineskip}
@@ -126,7 +138,6 @@
 \begin{titlingpage}
 \vspace*{\fill}
 
-\newcommand{\framesize}{\textwidth}
 \begin{tikzpicture}[color=Gold,
     transform shape,
     every node/.style={inner sep=0pt}]
