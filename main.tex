@@ -52,6 +52,25 @@
     \ltx@paragraph*{#1}\fi}%
 \makeatother
 
+\makechapterstyle{dash-embiggened}{%
+  \chapterstyle{default}
+  \setlength{\beforechapskip}{5\onelineskip}
+  \renewcommand*{\printchaptername}{}
+  \renewcommand*{\chapternamenum}{}
+  \renewcommand*{\chapnumfont}{\normalfont\Huge}
+  \settoheight{\midchapskip}{\chapnumfont 1}
+  \renewcommand*{\printchapternum}{\centering \chapnumfont
+    \rule[0.5\midchapskip]{1em}{0.4pt} \thechapter\
+    \rule[0.5\midchapskip]{1em}{0.4pt}}
+  \renewcommand*{\afterchapternum}{\par\nobreak\vskip 0.5\onelineskip}
+  \renewcommand*{\printchapternonum}{\centering
+                 \vphantom{\chapnumfont 1}\afterchapternum}
+  \renewcommand*{\chaptitlefont}{\normalfont\HUGE\scshape}
+  \renewcommand*{\printchaptertitle}[1]{\centering \chaptitlefont ##1}
+  \setlength{\afterchapskip}{2.5\onelineskip}}
+
+\chapterstyle{dash-embiggened}
+
 \title{The Holy Bible}
 \date{}
 \author{}
