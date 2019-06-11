@@ -1,6 +1,4 @@
 \documentclass[twoside,twocolumn,a4paper,10pt]{memoir}
-\usepackage[T1]{fontenc}
-\usepackage{ebgaramond}
 \usepackage{lipsum}
 \usepackage{fixltx2e}
 \usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
@@ -10,6 +8,34 @@
   \fancyhf{}
   \fancyhead[RO,LE]{\rightmark}
   \renewcommand{\headrulewidth}{.5pt}
+
+\usepackage{fontspec}
+\setmainfont{equity}[
+  % Files
+  Path      = \string~/s/fonts/equity/ ,
+  Extension = .otf ,
+  % Fonts
+  UprightFont     = Equity Text A Regular ,
+  UprightFeatures = { SmallCapsFont = Equity Caps A Regular } ,
+  BoldFont        = Equity Text A Bold ,
+  BoldFeatures    = { SmallCapsFont = Equity Caps A Bold } ,
+  ItalicFont      = Equity Text A Italic ,
+  BoldItalicFont  = Equity Text A Bold Italic ,
+  % Features
+  Numbers = OldStyle ]
+
+% old-style numbers don't look great as drop-caps
+\newfontfamily{\lettrinefont}{lettrine}[
+  % Files
+  Path      = \string~/s/fonts/equity/ ,
+  Extension = .otf ,
+  % Fonts
+  UprightFont     = Equity Text A Regular ,
+  UprightFeatures = { SmallCapsFont = Equity Caps A Regular } ,
+  BoldFont        = Equity Text A Bold ,
+  BoldFeatures    = { SmallCapsFont = Equity Caps A Bold } ,
+  ItalicFont      = Equity Text A Italic ,
+  BoldItalicFont  = Equity Text A Bold Italic]
 
 \setlength{\headwidth}{\textwidth}
 \setlength{\headheight}{15pt}
@@ -43,8 +69,8 @@
     \advance\biblechap@svdopt by -1\fi
   \setcounter{biblechapter}{\the\biblechap@svdopt}
   \refstepcounter{biblechapter}
-  \lettrine{\color{\chapnumcolor}\lower-6pt\hbox{\thebiblechapter}}{}\ignorespaces}
-  {\vspace{\biblechapskip}}
+  \lettrine[lines=3,lhang=0,loversize=0.25]{\lettrinefont\color{\chapnumcolor}\thebiblechapter}{}\ignorespaces}
+  {\par\vspace{\biblechapskip}}
 \renewcommand{\verse}[1][\thebibleverse]{%
   \refstepcounter{bibleverse}
   \markright{{\scshape\currbook} \thebiblechapter:\thebibleverse}
