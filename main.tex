@@ -6,10 +6,11 @@
 \usepackage{lettrine}
 \usepackage{flushend}
 \usepackage{fancyhdr}
-  \pagestyle{fancy}
-  \fancyhf{}
-  \fancyhead[RO,LE]{\rightmark}
-  \renewcommand{\headrulewidth}{.5pt}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[RO,LE]{\rightmark}
+\renewcommand{\headrulewidth}{0pt}
 
 \usepackage{fontspec}
 \setmainfont{equity}[
@@ -40,9 +41,9 @@
   BoldItalicFont  = Equity Text A Bold Italic]
 
 \setlength{\headwidth}{\textwidth}
-\setlength{\headheight}{15pt}
-\setlength{\headsep}{0pt}
 \setlength{\columnseprule}{0pt}
+\setheadfoot{12pt}{12pt}
+\setheaderspaces{*}{12pt}{*}
 \clubpenalty10000
 \widowpenalty10000
 
