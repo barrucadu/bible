@@ -50,6 +50,14 @@
 \clubpenalty10000
 \widowpenalty10000
 
+\usepackage{eso-pic}
+\newcommand\AtPageUpperRight[1]{\AtPageUpperLeft{%
+ \put(\LenToUnit{\paperwidth},\LenToUnit{0\paperheight}){#1}%
+ }}%
+\newcommand\AtPageLowerRight[1]{\AtPageLowerLeft{%
+ \put(\LenToUnit{\paperwidth},\LenToUnit{0\paperheight}){#1}%
+ }}%
+
 \makeatletter
 \newcommand\versenumcolor{red}
 \newcommand\chapnumcolor{red}
@@ -149,6 +157,13 @@
 
 \vspace*{\fill}
 \end{titlingpage}
+
+\AddToShipoutPictureBG{%
+   \AtPageUpperLeft{\put(10,-35){\pgfornament[width=1.75cm,symmetry=h]{194}}}
+   \AtPageUpperRight{\put(-60,-35){\pgfornament[width=1.75cm,symmetry=h]{195}}}
+   \AtPageLowerLeft{\put(10,35){\pgfornament[width=1.75cm,symmetry=v]{195}}}
+   \AtPageLowerRight{\put(-60,35){\pgfornament[width=1.75cm,symmetry=v]{194}}}
+   }
 
 \tableofcontents
 
