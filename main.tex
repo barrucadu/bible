@@ -64,8 +64,9 @@
     \advance\biblechap@svdopt by -1\fi
   \setcounter{biblechapter}{\the\biblechap@svdopt}
   \refstepcounter{biblechapter}
+  \setbeforesecskip{1ex}\setbeforesubsecskip{1ex}
   \lettrine[lines=3,lhang=0,loversize=0.25]{\lettrinefont\color{\chapnumcolor}\thebiblechapter}{}\ignorespaces}
-  {\par\vspace{\biblechapskip}}
+  {\par\vspace{\biblechapskip}\setbeforesecskip{0ex}\setbeforesubsecskip{0ex}}
 \renewcommand{\verse}[1][\thebibleverse]{%
   \refstepcounter{bibleverse}%
   \markright{{\scshape\currbook} \thebiblechapter:\thebibleverse}%
@@ -90,6 +91,14 @@
   \setlength{\afterchapskip}{2.5\onelineskip}}
 
 \chapterstyle{dash-embiggened}
+
+\setbeforesecskip{0ex}
+\setaftersecskip{0.1ex}
+\setsecheadstyle{\bfseries\raggedright\Large}
+
+\setbeforesubsecskip{0ex}
+\setaftersubsecskip{0.1ex}
+\setsubsecheadstyle{\bfseries\itshape\raggedright\large}
 
 \title{The Holy Bible}
 \date{}
