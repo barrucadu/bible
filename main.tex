@@ -1,0 +1,69 @@
+\documentclass[twoside,twocolumn,a4paper,10pt]{memoir}
+\usepackage[T1]{fontenc}
+\usepackage{ebgaramond}
+\usepackage{lipsum}
+\usepackage{fixltx2e}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{lettrine}
+\usepackage{fancyhdr}
+  \pagestyle{fancy}
+  \fancyhf{}
+  \fancyhead[RO,LE]{\rightmark}
+  \renewcommand{\headrulewidth}{.5pt}
+
+\setlength{\headwidth}{\textwidth}
+\setlength{\headheight}{15pt}
+\setlength{\headsep}{0pt}
+\setlength{\columnseprule}{0pt}
+\clubpenalty10000
+\widowpenalty10000
+
+\makeatletter
+\newcommand\versenumcolor{red}
+\newcommand\chapnumcolor{red}
+\renewcommand\paragraph{%
+  \@startsection{paragraph}{4}{\z@}%
+                {.25ex \@plus.25ex \@minus.1ex}%
+                {-.5em}%
+                {\normalfont\normalsize\bfseries\color{\versenumcolor}}}%
+\newlength{\biblechapskip}
+  \setlength{\biblechapskip}{1em plus .33em minus .2em}
+\newcounter{biblechapter}
+\newcounter{bibleverse}[biblechapter]
+\renewcommand\chaptername{Book}
+\let\ltx@chapter=\chapter
+\let\ltx@paragraph=\paragraph
+\newcommand{\biblebook}[1]{%
+  \gdef\currbook{#1}
+  \ltx@chapter{#1}}
+\newcount\biblechap@svdopt
+\newenvironment{biblechapter}[1][\thebiblechapter]
+  {\biblechap@svdopt=#1
+  \ifnum\c@biblechapter=\biblechap@svdopt\else
+    \advance\biblechap@svdopt by -1\fi
+  \setcounter{biblechapter}{\the\biblechap@svdopt}
+  \refstepcounter{biblechapter}
+  \lettrine{\color{\chapnumcolor}\lower-6pt\hbox{\thebiblechapter}}{}\ignorespaces}
+  {\vspace{\biblechapskip}}
+\renewcommand{\verse}[1][\thebibleverse]{%
+  \refstepcounter{bibleverse}
+  \markright{{\scshape\currbook} \thebiblechapter:\thebibleverse}
+  \ifnum\c@bibleverse=1\else
+    \ltx@paragraph*{#1}\fi}%
+\makeatother
+
+\title{The Holy Bible}
+\date{}
+\author{}
+
+\begin{document}
+\frontmatter
+\maketitle
+\tableofcontents
+
+\mainmatter
+\part*{The Old Testament}
+  \setlength{\columnseprule}{.5pt}
+
+\input{genesis.tex}
+\end{document}
