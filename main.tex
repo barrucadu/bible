@@ -53,6 +53,11 @@
 \clubpenalty10000
 \widowpenalty10000
 
+\newlength{\versespacing}
+\setlength{\versespacing}{.16667em plus .08333em}
+\newcommand{\versespace}{\hspace{\versespacing}}
+\frenchspacing
+
 \usepackage{eso-pic}
 \newcommand\AtPageUpperRight[1]{\AtPageUpperLeft{%
  \put(\LenToUnit{\paperwidth},\LenToUnit{0\paperheight}){#1}%
@@ -87,7 +92,7 @@
 \renewcommand{\verse}[1][\thebibleverse]{%
   \refstepcounter{bibleverse}%
   \markright{{\scshape\currbook} \thebiblechapter:\thebibleverse}%
-  \ifnum\c@bibleverse=1\else{\color{\versenumcolor}\textbf{\thebibleverse}}\fi~}%
+  \ifnum\c@bibleverse=1\else{\versespace\color{\versenumcolor}\textbf{\thebibleverse}}\fi~}%
 \makeatother
 
 \renewcommand{\printparttitle}[1]{%
