@@ -17,6 +17,7 @@ Copy body text from the KJV, then:
   - `\LORD`
   - `\LORDs`
 - Use "Passover" instead of "passover".
+- Use "Sabbath" instead of "sabbath".
 
 Words consisting of block capitals can be found with `egrep`:
 
