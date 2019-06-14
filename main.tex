@@ -97,6 +97,18 @@
   \ifnum\c@bibleverse=1\else{\versespace\color{\versenumcolor}\textbf{\thebibleverse}}\fi~}%
 \makeatother
 
+\newcommand{\startornaments}{\AddToShipoutPictureBG{%
+  \checkoddpage%
+  \ifoddpage%
+   \AtPageUpperRight{\put(-60,-35){\pgfornament[width=1.75cm,symmetry=h,color=black]{195}}}%
+   \AtPageLowerRight{\put(-60,35){\pgfornament[width=1.75cm,symmetry=v,color=black]{194}}}%
+ \else%
+   \AtPageUpperLeft{\put(10,-35){\pgfornament[width=1.75cm,symmetry=h,color=black]{194}}}%
+   \AtPageLowerLeft{\put(10,35){\pgfornament[width=1.75cm,symmetry=v,color=black]{195}}}
+ \fi}}
+
+\newcommand{\stopornaments}{\ClearShipoutPictureBG}
+
 \renewcommand{\printparttitle}[1]{%
   \thispagestyle{empty}%
   \addcontentsline{toc}{part}{#1}%
@@ -188,17 +200,7 @@
 \mainmatter
 \part*{The Old Testament}
 
-\AddToShipoutPictureBG{%
-  \checkoddpage%
-  \ifoddpage%
-   \AtPageUpperRight{\put(-60,-35){\pgfornament[width=1.75cm,symmetry=h,color=black]{195}}}%
-   \AtPageLowerRight{\put(-60,35){\pgfornament[width=1.75cm,symmetry=v,color=black]{194}}}%
- \else%
-   \AtPageUpperLeft{\put(10,-35){\pgfornament[width=1.75cm,symmetry=h,color=black]{194}}}%
-   \AtPageLowerLeft{\put(10,35){\pgfornament[width=1.75cm,symmetry=v,color=black]{195}}}
- \fi%
-}
-
+\startornaments
 \input{genesis.tex}\flushcolsend
 \input{exodus.tex}\flushcolsend
 \input{leviticus.tex}\flushcolsend
