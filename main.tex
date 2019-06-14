@@ -87,12 +87,12 @@
   \ifnum\c@biblechapter=\biblechap@svdopt\else
     \advance\biblechap@svdopt by -1\fi
   \setcounter{biblechapter}{\the\biblechap@svdopt}
-  \refstepcounter{biblechapter}
+  \stepcounter{biblechapter}
   \setbeforesecskip{1ex}\setbeforesubsecskip{1ex}
   \lettrine[lines=3,lhang=0,loversize=0.25]{\lettrinefont\color{\chapnumcolor}\thebiblechapter}{}\ignorespaces}
   {\par\vspace{\biblechapskip}\setbeforesecskip{0ex}\setbeforesubsecskip{0ex}}
 \renewcommand{\verse}[1][\thebibleverse]{%
-  \refstepcounter{bibleverse}%
+  \stepcounter{bibleverse}%
   \markright{{\scshape\currbook} \thebiblechapter:\thebibleverse}%
   \ifnum\c@bibleverse=1\else{\versespace\color{\versenumcolor}\textbf{\thebibleverse}}\fi~}%
 \makeatother
