@@ -1,3 +1,9 @@
-*
-!*.tex
-!.gitignore
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.pdf
+*.out
+*.toc
+*.xdv
+*.log
