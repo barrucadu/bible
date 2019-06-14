@@ -89,12 +89,12 @@
   \setcounter{biblechapter}{\the\biblechap@svdopt}
   \stepcounter{biblechapter}
   \setbeforesecskip{1ex}\setbeforesubsecskip{1ex}
-  \lettrine[lines=3,lhang=0,loversize=0.25]{\lettrinefont\color{\chapnumcolor}\thebiblechapter}{}\ignorespaces}
+  \lettrine[lines=3,lhang=0,findent=0pt,nindent=0pt,loversize=0.25]{\lettrinefont\color{\chapnumcolor}\,\thebiblechapter\,}{}\ignorespaces}
   {\par\vspace{\biblechapskip}\setbeforesecskip{0ex}\setbeforesubsecskip{0ex}}
 \renewcommand{\verse}[1][\thebibleverse]{%
   \stepcounter{bibleverse}%
   \markright{{\scshape\currbook} \thebiblechapter:\thebibleverse}%
-  \ifnum\c@bibleverse=1\else{\versespace\color{\versenumcolor}\textbf{\thebibleverse}}\fi~}%
+  \ifnum\c@bibleverse=1\else{\versespace\color{\versenumcolor}\textbf{\thebibleverse}~}\fi\ignorespaces}%
 \makeatother
 
 \newcommand{\startornaments}{\AddToShipoutPictureBG{%
