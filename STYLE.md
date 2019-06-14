@@ -16,6 +16,7 @@ Copy body text from the KJV, then:
 - Use smallcaps instead of block capitals.  Handy definitions are:
   - `\LORD`
   - `\LORDs`
+- Use "Passover" instead of "passover".
 
 Words consisting of block capitals can be found with `egrep`:
 
