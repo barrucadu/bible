@@ -69,6 +69,16 @@
  \put(\LenToUnit{\paperwidth},\LenToUnit{0\paperheight}){#1}%
  }}%
 
+\newcommand{\sectionstyle}{\bfseries\raggedright\Large}
+\setsecheadstyle{\sectionstyle}
+\setbeforesecskip{0ex}
+\setaftersecskip{0.1ex}
+
+\newcommand{\subsectionstyle}{\bfseries\itshape\raggedright\large}
+\setsubsecheadstyle{\subsectionstyle}
+\setbeforesubsecskip{0ex}
+\setaftersubsecskip{0.1ex}
+
 \makeatletter
 \newcommand\versenumcolor{red}
 \newcommand\chapnumcolor{red}
@@ -92,10 +102,15 @@
   \setbeforesecskip{1ex}\setbeforesubsecskip{1ex}
   \lettrine[lines=3,lhang=0,findent=0pt,nindent=0pt,loversize=0.25]{\lettrinefont\color{\chapnumcolor}\,\thebiblechapter\,}{}\ignorespaces}
   {\par\vspace{\biblechapskip}\setbeforesecskip{0ex}\setbeforesubsecskip{0ex}}
-\renewcommand{\verse}[1][\thebibleverse]{%
-  \stepcounter{bibleverse}%
-  \markright{{\scshape\currbook} \thebiblechapter:\thebibleverse}%
-  \ifnum\c@bibleverse=1\else{\versespace\color{\versenumcolor}\textbf{\thebibleverse}~}\fi\ignorespaces}%
+\newcommand{\@verse}{\stepcounter{bibleverse}\markright{{\scshape\currbook} \thebiblechapter:\thebibleverse}}
+\newcommand{\@showversenum}{\ifnum\c@bibleverse=1\else{\color{\versenumcolor}\textbf{\thebibleverse}~}\fi\ignorespaces}
+\renewcommand{\verse}{\@verse\@showversenum}
+\newcommand{\verseWithHeading}[1]{%
+  \@verse%
+  \ifnum\c@bibleverse=1{\sectionstyle#1\newline}\else\section*{#1}\fi\@showversenum}
+\newcommand{\verseWithSubheading}[1]{%
+  \@verse%
+  \ifnum\c@bibleverse=1{\subsectionstyle#1\newline}\else\subsection*{#1}\fi\@showversenum}
 \makeatother
 
 \newcommand{\startornaments}{\AddToShipoutPictureBG{%
@@ -141,14 +156,6 @@
   \setlength{\afterchapskip}{2.5\onelineskip}}
 
 \chapterstyle{dash-embiggened}
-
-\setbeforesecskip{0ex}
-\setaftersecskip{0.1ex}
-\setsecheadstyle{\bfseries\raggedright\Large}
-
-\setbeforesubsecskip{0ex}
-\setaftersubsecskip{0.1ex}
-\setsubsecheadstyle{\bfseries\itshape\raggedright\large}
 
 \newcommand{\columnbreak}{\pagebreak}
 

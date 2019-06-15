@@ -5,6 +5,7 @@ Copy headings from the NIV, then:
 
 - Ensure wording is consistent with body text (eg, NIV tends to use "festival" where KJV uses "feast").
 - Ensure spelling is consistent with body text (eg, names may be transliterated differently).
+- Avoid hyphenation and variable spacing (insert `\newline` for all breaks)
 
 
 Body text
