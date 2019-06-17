@@ -5,7 +5,7 @@ The King James Bible
 
 I am using LaTeX to typeset the King James Bible.
 
-You can see the latest version here: https://misc.barrucadu.co.uk/artefacts/bible.pdf
+You can see the latest version here: https://misc.barrucadu.co.uk/artefacts/bible/master.pdf
 
 
 Building
