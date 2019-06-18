@@ -5,6 +5,8 @@ Copy headings from the NIV, then:
 
 - Ensure wording is consistent with body text (eg, NIV tends to use "festival" where KJV uses "feast").
 - Ensure spelling is consistent with body text (eg, names may be transliterated differently).
+- Use "The death of $NAME" to "$NAME's death" and other variations.
+- Use the Oxford comma.
 - Avoid hyphenation and variable spacing (insert `\newline` for all breaks)
 
 
