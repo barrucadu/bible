@@ -12,7 +12,8 @@
 
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[RO,LE]{\rightmark}
+\fancyhead[L]{\rightmark}
+\fancyhead[R]{\leftmark}
 \cfoot{\thepage}
 \renewcommand{\headrulewidth}{0pt}
 
@@ -104,7 +105,7 @@
   {\par\vspace{\biblechapskip}\setbeforesecskip{0ex}\setbeforesubsecskip{0ex}}
 \newcommand{\@showversenum}{%
   \ifnum\c@bibleverse=1\else{\color{\versenumcolor}\textbf{\thebibleverse}~}\fi%
-  \markright{{\scshape\currbook} \thebiblechapter:\thebibleverse}%
+  \markboth{{\scshape\currbook} \thebiblechapter:\thebibleverse}{{\scshape\currbook} \thebiblechapter:\thebibleverse}%
   \ignorespaces}
 \renewcommand{\verse}{\stepcounter{bibleverse}\@showversenum}
 \newcommand{\verseWithHeading}[1]{%
