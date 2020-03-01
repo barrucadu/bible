@@ -102,14 +102,16 @@
   \setbeforesecskip{1ex}\setbeforesubsecskip{1ex}
   \lettrine[lines=3,lhang=0,findent=0pt,nindent=0pt,loversize=0.25]{\lettrinefont\color{\chapnumcolor}\,\thebiblechapter\,}{}\ignorespaces}
   {\par\vspace{\biblechapskip}\setbeforesecskip{0ex}\setbeforesubsecskip{0ex}}
-\newcommand{\@verse}{\stepcounter{bibleverse}\markright{{\scshape\currbook} \thebiblechapter:\thebibleverse}}
-\newcommand{\@showversenum}{\ifnum\c@bibleverse=1\else{\color{\versenumcolor}\textbf{\thebibleverse}~}\fi\ignorespaces}
-\renewcommand{\verse}{\@verse\@showversenum}
+\newcommand{\@showversenum}{%
+  \ifnum\c@bibleverse=1\else{\color{\versenumcolor}\textbf{\thebibleverse}~}\fi%
+  \markright{{\scshape\currbook} \thebiblechapter:\thebibleverse}%
+  \ignorespaces}
+\renewcommand{\verse}{\stepcounter{bibleverse}\@showversenum}
 \newcommand{\verseWithHeading}[1]{%
-  \@verse%
+  \stepcounter{bibleverse}%
   \ifnum\c@bibleverse=1{\sectionstyle#1\newline}\else\section*{#1}\fi\@showversenum}
 \newcommand{\verseWithSubheading}[1]{%
-  \@verse%
+  \stepcounter{bibleverse}%
   \ifnum\c@bibleverse=1{\subsectionstyle#1\newline}\else\subsection*{#1}\fi\@showversenum}
 \makeatother
 
